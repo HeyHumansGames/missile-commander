@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is G33K war!</title>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <style type="text/css">
+    html,body {
+      background-color: #000;
+      color: #fff;
+      font-family: helvetica, arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-size: 12pt;
+    }
+    
+    canvas {
+      cursor: crosshair;  
+    }
+
+    a { color: #FF0; }
+
+    #universeMap {
+      position: absolute;
+      top: 170px;
+      width: 400px;
+      height: 700px;
+    }
+    #sectorName {
+      position: absolute;
+      top: 170px;
+      width: 400px;
+      z-index: 10;
+      font-weight: bold;
+      padding: 10px;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #tools {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 415px;
+      width: 640px;
+      height: 480px;
+    }
+
+    #playerName {
+      position: relative;
+      width: 280px;
+      left: 240px;
+      top: 422px;
+      height: 40px;
+      border: 2px solid #00FF66;
+      background-color: rgba(255,255,255,0.2);
+      color: #FFF;
+      font-size: 24px;
+      display: none;
+    }
+
+    #panel {
+      position: absolute;
+      width: 100%;
+      height: 1058px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    .hit0 {
+      background-image: url(media/WAITINGGAME_CADRE1_1.png);
+    }
+    .hit1 {
+      background-image: url(media/WAITINGGAME_CADRE2_1.png);
+    }
+    .hit2 {
+      background-image: url(media/WAITINGGAME_CADRE3_1.png);
+    }
+
+  </style>
+  
+  <script type="text/javascript" src="lib/impact/impact.js"></script>
+  <script type="text/javascript" src="lib/game/main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Missile Commander, a GEEK game.</h1>
+        <!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+				  <li class="active"><a href="#fr" data-toggle="tab">Bienvenu, Commander</a></li>
+				  <li><a href="#en" data-toggle="tab">Welcome, Commander</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  <div class="tab-pane active" id="fr">
+				  	<p>Dans Missile Commander (en hommage à Missile Command), aidez nous à reconquerir les <strong>1337</strong> secteurs de la galaxie, tombés aux mains du machiavélique Ennemi.</p>
+		        <p>Testez votre résistance au stress et dégommez de l'Alien !</p>
+		        <p>Developpé par <a href="http://heyhumans.com">HeyHumans!</a> (<a href="http://twitter.com/heyhumansgames">@HeyHumansGames</a>) Effets audio et musiques <a href="http://www.matiaslizana.com/">Matias Lizana García</a> (<a href="http://twitter.com/matias_lizana">@matias_lizana</a>) et visuels par Christian Ung (<a href="http://twitter.com/christianung">@christianung</a>).</p>
+		        <p>Tout le contenu du jeu est disponible en opensource, suivez les liens :
+		          <ul>
+		            <li>repo principal (code, sons, visuels): <a href='https://github.com/HeyHumansGames/missile-commander'>https://github.com/HeyHumansGames/missile-commander</a></li>
+		            <li>son sur la <a href='https://matiaslizana.bandcamp.com/album/missile-commander-ost'>page bandcamp</a> de Matias</li>
+		            <li>visuels sur OpenGameArt: <a href='http://opengameart.org/content/missile-commander-pixel-art-space-sprites'>http://opengameart.org/content/missile-commander-pixel-art-space-sprites</a></li>
+		          </ul>
+		        </p>
+		        <p>
+		          Aidez nous à reconquérir la galaxie !<br/>
+		          Il y aura peut être une surprise en cas de Victoire... :)
+		          <br/>
+		          <br/>
+		          Contactez-nous si besoin, Commander ! contact@geeklemag.com
+		        </p>
+		      </div>
+				  <div class="tab-pane" id="en">
+				  	<p>In Missile Commander (in hommage to Missile Command) you play as a Human Commander trying to win back the <strong>1337</strong> galaxy sectors that have fallen into the hands of the Enemy.</p>
+		        <p>Test your stress levels and shoot those aliens down!</p>
+		        <p>Developped by <a href="http://heyhumans.com">HeyHumans!</a> (<a href="http://twitter.com/heyhumansgames">@HeyHumansGames</a>) with music and sounds by <a href="http://www.matiaslizana.com/">Matias Lizana García</a> (<a href="http://twitter.com/matias_lizana">@matias_lizana</a>) and visuals by Christian Ung (<a href="http://twitter.com/christianung">@christianung</a>).</p>
+		        <p>We opensourced all the game assets, they can be found here:
+		          <ul>
+		            <li>main repo (game, sound, visuals): <a href='https://github.com/HeyHumansGames/missile-commander'>https://github.com/HeyHumansGames/missile-commander</a></li>
+		            <li>sound on Matias' <a href='https://matiaslizana.bandcamp.com/album/missile-commander-ost'>bandcamp page</a></li>
+		            <li>visuals on OpenGameArt: <a href='http://opengameart.org/content/missile-commander-pixel-art-space-sprites'>http://opengameart.org/content/missile-commander-pixel-art-space-sprites</a></li>
+		          </ul>
+		        </p>
+		        <p>
+		          We hope you like it and help us win back the galaxy!<br/>
+		          There might be a surprise in case of Victory... :)
+		          <br/>
+		          <br/>
+		          Contact us if need be Commander! contact@geeklemag.com
+		        </p>
+				  </div>
+				</div>
+      </div>
+    </div>
+  </div>
+  <div id="panel" class="hit0">
+    <div id="tools">
+      <input type="text" id="playerName"/>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <div id="sectorName"></div>
+    <canvas id="universeMap"></canvas>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/map.js"></script>
+  <script type="text/javascript">
+
+  	var sectors = [
+	    [
+        "0A4-Zanix",
+        136,
+        131
+	    ],
+	    [
+        "SNV-Deach",
+        31,
+        191
+	    ],
+	    [
+        "HNM-Ciran",
+        22,
+        238,
+        true
+	    ]
+	  ];
+
+    uMap.addSectors(sectors);
+
+    $(document).ready(function() {
+      var o = $("#tools").offset();
+      $("#universeMap").offset({ left: o.left + 640 + 40});
+      $("#sectorName").offset({ left: o.left + 640 + 40});
+    });
+
+    $(window).resize(function() {
+      var o = $("#tools").offset();
+      $("#universeMap").offset({ left: o.left + 640 + 40});
+      $("#sectorName").offset({ left: o.left + 640 + 40});
+    });
+
+    $('.nav-tabs a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		});
+
+  </script>
+</body>
+</html>
